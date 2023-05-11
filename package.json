@@ -1,0 +1,23 @@
+{
+  "name": "sql_miniproject",
+  "version": "1.0.0",
+  "description": "sql mini_project",
+  "main": "node server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShahnazAfreen9849/sql_miniproject.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "Shahnaz Afreen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShahnazAfreen9849/sql_miniproject/issues"
+  },
+  "homepage": "https://github.com/ShahnazAfreen9849/sql_miniproject#readme"
+}
