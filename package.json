@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ShahnazAfreen9849/sql_miniproject/issues"
   },
-  "homepage": "https://github.com/ShahnazAfreen9849/sql_miniproject#readme"
+  "homepage": "https://github.com/ShahnazAfreen9849/sql_miniproject#readme",
+  "dependencies": {
+    "install": "^0.13.0"
+  }
 }

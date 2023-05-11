@@ -82,15 +82,45 @@ app.delete('/api/movie/:id', (req, res) => {
 app.get('/api/movie-reviews', (req, res) => {
     const sql = `SELECT movies.movie_name AS movie, reviews.review FROM reviews LEFT JOIN movies ON reviews.movie_id = movies.id ORDER BY movies.movie_name;`;
     db.query(sql, (err, rows) => {
-        if (err){
-            res.status(500).json({error: err.message});
+        if (err) {
+            res.status(500).json({ error: err.message });
             return;
         }
         res.json({
-            message:'success',
-            data:rows
+            message: 'success',
+            data: rows
         });
     });
 });
 
-// Bonu
+// Bonus: Update review name
+
+app.put('/api/review/:id', (req, res) => {
+    const sql = `UPDATE reviews SET review = ? WHERE id = ?`;
+    const params = [req.body.review, req.params.id];
+
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ error: err.message });
+        } else if (!result.affectedRows) {
+            res.json({
+                message: 'Movie not found'
+            });
+        } else {
+            res.json({
+                message: 'success',
+                data: req.body,
+                changes: result.affectedRows
+            });
+        }
+    });
+});
+
+//Default response for any other request (Not Found)
+app.use((req, res) => {
+    res.status(404).end();
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
